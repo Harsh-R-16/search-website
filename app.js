@@ -90,7 +90,16 @@ let data = [
     "https://th.bing.com/th/id/OIP.FvWn9W-UVCp1fDUG7wmRfgHaHa?w=177&h=180&c=7&o=5&dpr=1.25&pid=1.7",
   ],
 ];
-
+if (localStorage.getItem("icon") === null) {
+  let a = prompt("Enter your name: ");
+  let span = document.querySelector("span");
+  span.innerText = a[0].toUpperCase().trim() || "H";
+  localStorage.setItem("icon", span.innerText);
+} else {
+  let a = localStorage.getItem("icon");
+  let span = document.querySelector("span");
+  span.innerText = a;
+}
 let section = document.querySelector("section");
 for (let i = 0; i < data.length; i++) {
   section.innerHTML += `  <form action=${data[i][1]} target="_blank">
